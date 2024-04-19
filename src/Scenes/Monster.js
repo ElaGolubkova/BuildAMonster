@@ -99,15 +99,39 @@ class Monster extends Phaser.Scene {
             my.sprite.smile.visible = false;
 	    });
 
-
-
-
+        this.dKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+        this.aKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
     }
 
     update() {
         let my = this.my;    // create an alias to this.my for readability
+        const speed = 2;
 
-       
+        //Make the character move right while pressing "D"
+        if (this.dKey.isDown) {
+            my.sprite.body.x += speed;
+            my.sprite.smile.x += speed;
+            my.sprite.fangs.x += speed;
+            my.sprite.rightArm.x += speed;
+            my.sprite.leftArm.x += speed;
+            my.sprite.rightLeg.x += speed;
+            my.sprite.leftLeg.x += speed;
+            my.sprite.rightEye.x += speed;
+            my.sprite.leftEye.x += speed;
+        }
+
+        ////Make the character move left while pressing "A"
+        if (this.aKey.isDown) {
+            my.sprite.body.x -= speed;
+            my.sprite.smile.x -= speed;
+            my.sprite.fangs.x -= speed;
+            my.sprite.rightArm.x -= speed;
+            my.sprite.leftArm.x -= speed;
+            my.sprite.rightLeg.x -= speed;
+            my.sprite.leftLeg.x -= speed;
+            my.sprite.rightEye.x -= speed;
+            my.sprite.leftEye.x -= speed;
+        }
     }
 
 }
